@@ -1,4 +1,4 @@
-# Roman-Numerals-Converter_TDD_CleanCode
+# Roman-Numerals-Converter TDD and CleanCode
 
 ![CodeFactor](https://img.shields.io/badge/JAVA-13-blue)
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/fh-erfurt/RentATool/blob/master/LICENSE)
