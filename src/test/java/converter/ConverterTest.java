@@ -1,5 +1,7 @@
 package converter;
 
+import converter.Exceptions.OverflowException;
+import converter.Exceptions.UnderflowException;
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;

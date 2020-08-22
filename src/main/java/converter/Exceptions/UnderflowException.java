@@ -1,5 +1,6 @@
-package converter;
+package converter.Exceptions;
 
+import converter.RomanNumeralsConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

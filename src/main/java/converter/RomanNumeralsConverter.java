@@ -1,44 +1,52 @@
 package converter;
 
+import converter.Exceptions.OverflowException;
+import converter.Exceptions.UnderflowException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.HashMap;
 
 public class RomanNumeralsConverter {
     private static final Logger log = LoggerFactory.getLogger(RomanNumeralsConverter.class);
 
+    public String convertNumberToRomanNumber(int value) {
+
+        StringBuilder romanNumber = new StringBuilder();
+        int number = value;
+        int highestDecimalValue = 0;
+
+        if(number == 0) throw new UnderflowException();
+
+        while(number != 0) {
+            highestDecimalValue = findHighestDecimalValue(number);
+            romanNumber.append(convertSingleNumberToSingleRomanNumber(highestDecimalValue));
+            number -= highestDecimalValue;
+        }
+
+        log.info(value + " = " + romanNumber.toString());
+        return romanNumber.toString();
+    }
+
     public String convertSingleNumberToSingleRomanNumber(int number) {
 
-        switch (number){
-            case 1:
-                return "I";
-            case 4:
-                return "IV";
-            case 5:
-                return "V";
-            case 9:
-                return "IX";
-            case 10:
-                return "X";
-            case 40:
-                return "XL";
-            case 50:
-                return "L";
-            case 90:
-                return "XC";
-            case 100:
-                return "C";
-            case 400:
-                return "CD";
-            case 500:
-                return "D";
-            case 900:
-                return "CM";
-            case 1000:
-                return "M";
-            default:
-                return "EndOfConvert";
+        HashMap<Integer, String> romanNumberMap = new HashMap<Integer, String>();
 
-        }
+        romanNumberMap.put(1, "I");
+        romanNumberMap.put(4, "IV");
+        romanNumberMap.put(5, "V");
+        romanNumberMap.put(9, "IX");
+        romanNumberMap.put(10, "X");
+        romanNumberMap.put(40, "XL");
+        romanNumberMap.put(50, "L");
+        romanNumberMap.put(90, "XC");
+        romanNumberMap.put(100, "C");
+        romanNumberMap.put(400, "CD");
+        romanNumberMap.put(500, "D");
+        romanNumberMap.put(900, "CM");
+        romanNumberMap.put(1000, "M");
+
+        return romanNumberMap.get(number);
     }
 
     public int findHighestDecimalValue(int intValue) {
@@ -60,23 +68,5 @@ public class RomanNumeralsConverter {
         if( intValue < 1000 )  return 900;
 
         return 1000;
-    }
-
-    public String convertNumberToRomanNumber(int value) {
-
-        StringBuilder romanNumber = new StringBuilder();
-        int number = value;
-        int highestDecimalValue = 0;
-
-        if(number == 0) throw new UnderflowException();
-
-        while(number != 0){
-            highestDecimalValue = findHighestDecimalValue(number);
-            romanNumber.append(convertSingleNumberToSingleRomanNumber(highestDecimalValue));
-            number -= highestDecimalValue;
-        }
-
-        log.info(value + " = " + romanNumber.toString());
-        return romanNumber.toString();
     }
 }
