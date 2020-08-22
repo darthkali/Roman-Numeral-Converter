@@ -14,7 +14,7 @@ public class RomanNumeralsConverter {
 
         StringBuilder romanNumber = new StringBuilder();
         int number = value;
-        int highestDecimalValue = 0;
+        int highestDecimalValue;
 
         if(number == 0) throw new UnderflowException();
 
