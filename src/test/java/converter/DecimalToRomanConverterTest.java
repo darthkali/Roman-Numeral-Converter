@@ -1,7 +1,7 @@
 package converter;
 
-import converter.Exceptions.OverflowException;
-import converter.Exceptions.UnderflowException;
+import exceptions.OverflowException;
+import exceptions.UnderflowException;
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -21,67 +21,67 @@ public class DecimalToRomanConverterTest {
 
     @Test
     public void convert_1_to_I() {
-        assertEquals("I" , decimalToRomanConverter.convertSingleNumberToSingleRomanNumber(1));
+        assertEquals("I" , decimalToRomanConverter.convertHighestDecimalNumberToRomanNumber(1));
     }
 
     @Test
     public void convert_4_to_IV() {
-        assertEquals("IV", decimalToRomanConverter.convertSingleNumberToSingleRomanNumber(4));
+        assertEquals("IV", decimalToRomanConverter.convertHighestDecimalNumberToRomanNumber(4));
     }
 
     @Test
     public void convert_5_to_V() {
-        assertEquals("V", decimalToRomanConverter.convertSingleNumberToSingleRomanNumber(5));
+        assertEquals("V", decimalToRomanConverter.convertHighestDecimalNumberToRomanNumber(5));
     }
 
     @Test
     public void convert_9_to_IX() {
-        assertEquals("IX", decimalToRomanConverter.convertSingleNumberToSingleRomanNumber(9));
+        assertEquals("IX", decimalToRomanConverter.convertHighestDecimalNumberToRomanNumber(9));
     }
 
     @Test
     public void convert_10_to_X() {
-        assertEquals("X", decimalToRomanConverter.convertSingleNumberToSingleRomanNumber(10));
+        assertEquals("X", decimalToRomanConverter.convertHighestDecimalNumberToRomanNumber(10));
     }
 
     @Test
     public void convert_40_to_XL() {
-        assertEquals("XL" , decimalToRomanConverter.convertSingleNumberToSingleRomanNumber(40));
+        assertEquals("XL" , decimalToRomanConverter.convertHighestDecimalNumberToRomanNumber(40));
     }
 
     @Test
     public void convert_50_to_L() {
-        assertEquals("L" , decimalToRomanConverter.convertSingleNumberToSingleRomanNumber(50));
+        assertEquals("L" , decimalToRomanConverter.convertHighestDecimalNumberToRomanNumber(50));
     }
 
     @Test
     public void convert_90_to_XC() {
-        assertEquals("XC", decimalToRomanConverter.convertSingleNumberToSingleRomanNumber(90));
+        assertEquals("XC", decimalToRomanConverter.convertHighestDecimalNumberToRomanNumber(90));
     }
 
     @Test
     public void convert_100_to_C() {
-        assertEquals("C", decimalToRomanConverter.convertSingleNumberToSingleRomanNumber(100));
+        assertEquals("C", decimalToRomanConverter.convertHighestDecimalNumberToRomanNumber(100));
     }
 
     @Test
     public void convert_400_to_CD() {
-        assertEquals("CD", decimalToRomanConverter.convertSingleNumberToSingleRomanNumber(400));
+        assertEquals("CD", decimalToRomanConverter.convertHighestDecimalNumberToRomanNumber(400));
     }
 
     @Test
     public void convert_500_to_D() {
-        assertEquals("D", decimalToRomanConverter.convertSingleNumberToSingleRomanNumber(500));
+        assertEquals("D", decimalToRomanConverter.convertHighestDecimalNumberToRomanNumber(500));
     }
 
     @Test
     public void convert_900_to_CM() {
-        assertEquals("CM", decimalToRomanConverter.convertSingleNumberToSingleRomanNumber(900));
+        assertEquals("CM", decimalToRomanConverter.convertHighestDecimalNumberToRomanNumber(900));
     }
 
     @Test
     public void convert_1000_to_M() {
-        assertEquals("M", decimalToRomanConverter.convertSingleNumberToSingleRomanNumber(1000));
+        assertEquals("M", decimalToRomanConverter.convertHighestDecimalNumberToRomanNumber(1000));
     }
 
     @Test
@@ -231,7 +231,6 @@ public class DecimalToRomanConverterTest {
         assertEquals("MMMMCMXCIX", decimalToRomanConverter.convertDecimalNumberToRomanNumber(4999));
     }
 
-
     @Test (expected = UnderflowException.class)
     public void WhenInsertA_0_Then_ThrowAnException() {
         decimalToRomanConverter.convertDecimalNumberToRomanNumber(0);
@@ -253,7 +252,7 @@ public class DecimalToRomanConverterTest {
     }
 
     @Test
-    public void printsAllNumbersFrom_1_to_4999() {
+    public void printAllNumbersFrom_1_to_4999() {
         int number = 1;
         while(number != 5000){
             log.info("Decimal = " + number + " Roman = " + decimalToRomanConverter.convertDecimalNumberToRomanNumber(number));
