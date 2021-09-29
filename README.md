@@ -6,7 +6,7 @@
 ![Build Status](https://github.com/darthkali/Roman-Numerals-Converter_TDD_CleanCode/workflows/RomanNumeralConverter/badge.svg)
 
 
-It is a test repository for the Test Driven Development and Clean Code
+It is a test repository to try out the Test Driven Development and Clean Code
 
 
 Generate an Integer to Roman Numeral converter
